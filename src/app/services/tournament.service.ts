@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Tournament } from "../model/tournament.model";
+import { map, switchMap } from 'rxjs/operators';
 
 const PROTOCOL = "http";
 const PORT = 4000;
@@ -10,6 +11,7 @@ const PORT = 4000;
 export class TournamentService {
 
   baseUrl: string;
+  authToken!: string;
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
@@ -36,5 +38,34 @@ export class TournamentService {
 
   updateTournament(tournament: Tournament) {
     return this.http.post<Tournament>(`${this.baseUrl}tournamentsList/edit/${tournament._id}`, tournament);
+  }
+
+  login(email: string, pass: string): Observable<boolean> {
+    return this.http
+      .post<any>(this.baseUrl + 'login', {
+        email: email,
+        password: pass,
+      })
+      .pipe(
+        map((response) => {
+          console.log('authenticate', { response });
+          this.authToken = response.success ? response.token : null;
+          return response.success;
+        })
+      );
+  }
+
+  signUp(displayName: string, username: string, password: string): Observable<boolean> {
+    return this.http.post<any>(this.baseUrl + 'register', {
+      displayName,
+      username,
+      password,
+    }).pipe(
+      map((response) => {
+        console.log('register', { response });
+        this.authToken = response.success ? response.token : null;
+        return response.success;
+      })
+    );
   }
 }

@@ -16,10 +16,9 @@ const routes: Routes = [
   { path: 'tournamentsList/edit/:id', component: EditTournamentComponent },
   { path: 'tournamentsList', component: TournamentComponent },
 
-  { path: 'loginpage', component: LoginComponent, data: { title: 'Login' } },
-  { path: 'registerpage', component: RegisterComponent, data: { title: 'Register Here' } },
-  // { path: 'bookList', component: BookStoreComponent, data: { title: 'Book Store' } },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'register', component: RegisterComponent, data: { title: 'Register' } },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

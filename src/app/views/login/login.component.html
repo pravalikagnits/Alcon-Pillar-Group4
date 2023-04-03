@@ -1,18 +1,18 @@
 <div class="row">
-    <div class="offset md-4 col-md-4 login">
+    <div class="offset md-4 col-md-4">
         <h1>Please login</h1>
-        <form method="POST" autocomplete="off">
+        <form #form="ngForm" novalidate (ngSubmit)="loginUser(form)" class="m-2">
             <fieldset class="form-group">
                 <label for="username">username:</label>
-                <input type="text" class="form-control" name="username" placeholder="Enter username" id="username"
-                    required autofocus>
+                <input type="text" class="form-control" name="username" placeholder="Enter username"
+                    [(ngModel)]="username" id="username" required autofocus>
             </fieldset>
 
             <fieldset class="form-group">
                 <label for="password">password:</label>
-                <input type="password" class="form-control" name="password" placeholder="Enter password" id="password"
-                    required>
-                <!-- <a href="/register">Register Here</a> -->
+                <input type="password" class="form-control" name="password" placeholder="Enter password"
+                    [(ngModel)]="password" id="password" required>
+                <p> New User?<a href="/register">Register Here</a></p>
             </fieldset>
 
             <fieldset class="form-group text-right">
