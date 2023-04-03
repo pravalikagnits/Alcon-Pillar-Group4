@@ -5,6 +5,7 @@ import { EditTournamentComponent } from './views/edit-tournament/edit-tournament
 import { HomeComponent } from './views/home/home.component';
 import { TournamentComponent } from './views/tournament/tournament.component';
 import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
@@ -13,9 +14,10 @@ const routes: Routes = [
   // { path: 'displayEditTournament', component: EditTournamentComponent, data: { title: 'edit Tournament' } },
   { path: 'tournamentsList/:mode', component: EditTournamentComponent },
   { path: 'tournamentsList/edit/:id', component: EditTournamentComponent },
-  { path: 'tournamentsList', component: TournamentComponent},
+  { path: 'tournamentsList', component: TournamentComponent },
 
   { path: 'loginpage', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'registerpage', component: RegisterComponent, data: { title: 'Register Here' } },
   // { path: 'bookList', component: BookStoreComponent, data: { title: 'Book Store' } },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
