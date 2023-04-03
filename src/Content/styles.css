@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url("/assets/Bg2.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: 0 60px; */
+}
