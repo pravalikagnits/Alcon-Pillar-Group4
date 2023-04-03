@@ -40,10 +40,10 @@ export class TournamentService {
     return this.http.post<Tournament>(`${this.baseUrl}tournamentsList/edit/${tournament._id}`, tournament);
   }
 
-  login(email: string, pass: string): Observable<boolean> {
+  login(username: string, pass: string): Observable<boolean> {
     return this.http
       .post<any>(this.baseUrl + 'login', {
-        email: email,
+        username: username,
         password: pass,
       })
       .pipe(
