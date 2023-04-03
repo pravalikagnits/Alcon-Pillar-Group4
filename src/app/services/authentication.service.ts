@@ -8,7 +8,7 @@ export class AuthenticationService {
     authenticate(username: string, password: string): Observable<boolean> {
         return this.tournamentService.login(username, password);
     }
-    signUp(username: string, password: string, displayName: string): Observable<boolean> {
+    signUp(displayName: string,username: string, password: string): Observable<boolean> {
         return this.tournamentService.signUp(displayName, username, password);
     }
     get authenticated(): boolean {

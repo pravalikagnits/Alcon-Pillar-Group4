@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   }
   registerUser(form: NgForm) {
     if (form.valid) {
-      this.auth.signUp(this.displayName, this.email, this.password) .subscribe((response) => {
+      this.auth.signUp(this.displayName, this.username, this.password) .subscribe((response) => {
           if (response) {
             this.router.navigateByUrl('/login');
           }
