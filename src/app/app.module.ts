@@ -13,6 +13,11 @@ import { ModelModule } from './model/model.module';
 import { AddTournamentComponent } from './views/add-tournament/add-tournament.component';
 import { FormsModule } from '@angular/forms';
 import { EditTournamentComponent } from './views/edit-tournament/edit-tournament.component';
+import { JwtModule } from '@auth0/angular-jwt';
+export function jwtTokenGetter(): string|any
+{
+  localStorage.getItem('id_token');
+}
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { EditTournamentComponent } from './views/edit-tournament/edit-tournament
     BrowserModule,
     AppRoutingModule,
     ModelModule,
-    FormsModule 
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

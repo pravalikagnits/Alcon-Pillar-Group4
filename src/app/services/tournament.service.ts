@@ -1,17 +1,29 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Tournament } from "../model/tournament.model";
 import { map, switchMap } from 'rxjs/operators';
+import { User } from '../model/user.model';
 
 const PROTOCOL = "http";
 const PORT = 4000;
 
 @Injectable()
 export class TournamentService {
+  [x: string]: any;
 
   baseUrl: string;
   authToken!: string;
+  user!: User | null;
+
+  private httpOptions =
+  {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    })
+  };
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
@@ -44,7 +56,7 @@ export class TournamentService {
     return this.http
       .post<any>(this.baseUrl + 'login', {
         username: username,
-        password: pass,
+        password: pass
       })
       .pipe(
         map((response) => {
@@ -55,11 +67,13 @@ export class TournamentService {
       );
   }
 
-  signUp(displayName: string, username: string, password: string): Observable<boolean> {
+  signUp(displayName: string, username: string, password: string, email: string): Observable<boolean> {
+    this.loadToken();
     return this.http.post<any>(this.baseUrl + 'register', {
       displayName,
       username,
       password,
+      email
     }).pipe(
       map((response) => {
         console.log('register', { response });
@@ -68,4 +82,26 @@ export class TournamentService {
       })
     );
   }
+
+  loadToken(): void {
+    const token = localStorage.getItem('id_token');
+    this.authToken = token || '';
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+  }
+
+  storeUserData(token: any, user: User): void {
+    localStorage.setItem('id_token', 'Bearer ' + token);
+    this.authToken = token;
+
+    localStorage.setItem('user', JSON.stringify(user));
+    this.user = user;
+  }
+  
+  // login(pair: any): Observable<any> {
+  //   //console.log(this.baseUrl + 'login');
+  //   return this.http.post<any>(this.baseUrl + 'login', pair);
+  // }
+
 }
+
+
