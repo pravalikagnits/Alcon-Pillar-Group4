@@ -17,13 +17,13 @@ export class TournamentService {
   user!: User | null;
 
   private httpOptions =
-  {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-    })
-  };
+    {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      })
+    };
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
@@ -53,11 +53,12 @@ export class TournamentService {
   }
 
   login(username: string, pass: string): Observable<boolean> {
+
     return this.http
       .post<any>(this.baseUrl + 'login', {
         username: username,
         password: pass
-      })
+      }, this.httpOptions)
       .pipe(
         map((response) => {
           console.log('authenticate', { response });
@@ -96,7 +97,7 @@ export class TournamentService {
     localStorage.setItem('user', JSON.stringify(user));
     this.user = user;
   }
-  
+
   // login(pair: any): Observable<any> {
   //   //console.log(this.baseUrl + 'login');
   //   return this.http.post<any>(this.baseUrl + 'login', pair);
