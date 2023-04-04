@@ -3,13 +3,13 @@
         <h1>Please login</h1>
         <form #form="ngForm" novalidate (ngSubmit)="loginUser(form)" class="m-2">
             <fieldset class="form-group ">
-                <label for="username">username:</label>
+                <label for="username">Username:</label>
                 <input type="text" class="form-control mt-2" name="username" placeholder="Enter username"
                     [(ngModel)]="username" id="username" required autofocus>
             </fieldset>
 
             <fieldset class="form-group mt-3">
-                <label for="password">password:</label>
+                <label for="password">Password:</label>
                 <input type="password" class="form-control mt-2" name="password" placeholder="Enter password"
                     [(ngModel)]="password" id="password" required>
                 <p class="mt-2"> New User?<a href="/register">Register Here</a></p>
