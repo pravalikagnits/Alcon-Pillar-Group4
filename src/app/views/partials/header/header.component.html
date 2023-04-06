@@ -13,12 +13,13 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/" style="color:white"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Home</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tournamentsList" routerLinkActive="active" style="color:white">
+            <i class="fa-sharp fa-solid fa-futbol" style="color: #fafafa;"></i>
+            Tournaments
+          </a>
+        </li>
         <ng-container *ngIf="authenticated; else login">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tournamentsList" routerLinkActive="active" style="color:white"><i class="fa-sharp fa-solid fa-futbol" style="color: #fafafa;"></i>
-              Tournaments</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" (click)="logout()" style="color:white"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i> Logout</a>
           </li>

@@ -7,33 +7,33 @@
             <br/>
             <form #form="ngForm" novalidate (ngSubmit)="addTournament(form)" class="m-2">
                 <div class="form group">
-                    <label for="nameTextField">Title</label>
+                    <label for="nameTextField">Title </label>
                     <input type="text" class="form control" id="tournamentTitle" [(ngModel)]="tournament.title"
-                        placeholder="Enter the Tournament Title" name="title" required>
+                        placeholder="" name="title" required>
                 </div>
 
                 <div class="form group">
                     <label for="authorTextField">Owner</label>
                     <input type="text" class="form control" id="ownerFeild" [(ngModel)]="tournament.owner"
-                        placeholder="Enter the Owner of the Tournament" name="owner" required>
+                        placeholder="" name="owner" required>
                 </div>
 
                 <div class="form group">
                     <label for="publishedTextField">Sport Type</label>
                     <input type="text" class="form control" id="publishedTextField" [(ngModel)]="tournament.sportType"
-                        placeholder="Enter the Sport Type" name="sportType" required>
+                        placeholder="" name="sportType" required>
                 </div>
 
                 <div class="form group">
                     <label for="locationFeild">Location</label>
                     <input type="text" class="form control" id="locationFeild" [(ngModel)]="tournament.location"
-                        placeholder="Enter the Tournament's Location" name="location" required>
+                        placeholder="" name="location" required>
                 </div>
 
                 <div class="form group">
                     <label for="teamCountFeild">Team Count</label>
-                    <input type="number" class="form control" id="teamCountFeild" [(ngModel)]="tournament.teamCount"
-                        placeholder="Enter the Team Count" name="teamCount" required>
+                    <input type="number"min="0" class="form control" id="teamCountFeild" [(ngModel)]="tournament.teamCount"
+                        placeholder="" name="teamCount" required>
                 </div>
                 <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Create Tournament</button>
                 <a routerLink="/tournamentsList" class="btn btn-warning"><i class="fas fa-undo"></i>Cancel</a>

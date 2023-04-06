@@ -21,28 +21,35 @@
                     </tr>
                 </thead>
                 <tbody *ngFor='let tournament of Tournaments'>
-                    <tr>
-                        <td>
-                            {{tournament.title}}
-                        </td>
-                        <td>
-                            {{tournament.owner}}
-                        </td>
-                        <td>
-                            {{tournament.sportType}}
-                        </td>
-                        <td>
-                            {{tournament.location}}
-                        </td>
-                        <td>
-                            {{tournament.teamCount}}
-                        </td>
-<!-- todo change the rouer link displayEditTournament  -->
-                        <td><a  [routerLink]="['edit', tournament._id]" class="btn btn-primary"><i
-                                    class="fas fa-pencil-alt"></i>Edit</a></td>
-                        <td class="text-center col-1"><a (click)="deleteTournament(tournament._id)"
-                                class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a></td>
-                    </tr>
+                  <tr>
+                    <td>
+                      {{tournament.title}}
+                    </td>
+                    <td>
+                      {{tournament.owner}}
+                    </td>
+                    <td>
+                      {{tournament.sportType}}
+                    </td>
+                    <td>
+                      {{tournament.location}}
+                    </td>
+                    <td>
+                      {{tournament.teamCount}}
+                    </td>
+                    <!-- todo change the rouer link displayEditTournament  -->
+                    
+                      <td>
+                        <a [routerLink]="['edit', tournament._id]" class="btn btn-primary">
+                          <i class="fas fa-pencil-alt"></i> Edit
+                        </a>
+                      </td>
+                      <td class="text-center col-1">
+                        <a (click)="deleteTournament(tournament._id)"
+                           class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                      </td>
+                      
+                </tr>
                 </tbody>
             </table>
         </div>
