@@ -1,42 +1,45 @@
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
-            <h3>
+            <h1>
                 Create Tournament
-            </h3>
+            </h1>
             <br/>
-            <form #form="ngForm" novalidate (ngSubmit)="addTournament(form)" class="m-2">
-                <div class="form group">
-                    <label for="nameTextField">Title </label>
+            <form #form="ngForm" novalidate (ngSubmit)="addTournament(form)" class="m-2" style="">
+                <div class="form group" style=" padding-left: 37%; margin-top: 10px; border-radius: 8px;  ">
+                    <label for="nameTextField"></label>
                     <input type="text" class="form control" id="tournamentTitle" [(ngModel)]="tournament.title"
-                        placeholder="" name="title" required>
+                        placeholder="Title" name="title" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group">
-                    <label for="authorTextField">Owner</label>
+                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                    <label for="authorTextField"></label>
                     <input type="text" class="form control" id="ownerFeild" [(ngModel)]="tournament.owner"
-                        placeholder="" name="owner" required>
+                        placeholder="Owner" name="Owner" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group">
-                    <label for="publishedTextField">Sport Type</label>
+                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                    <label for="publishedTextField"></label>
                     <input type="text" class="form control" id="publishedTextField" [(ngModel)]="tournament.sportType"
-                        placeholder="" name="sportType" required>
+                        placeholder="Sport Type" name="sportType" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group">
-                    <label for="locationFeild">Location</label>
+                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                    <label for="locationFeild"></label>
                     <input type="text" class="form control" id="locationFeild" [(ngModel)]="tournament.location"
-                        placeholder="" name="location" required>
+                        placeholder="Location" name="location" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group">
-                    <label for="teamCountFeild">Team Count</label>
+                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                    <label for="teamCountFeild"> </label>
                     <input type="number"min="0" class="form control" id="teamCountFeild" [(ngModel)]="tournament.teamCount"
-                        placeholder="" name="teamCount" required>
+                        placeholder="Team Count" name="teamCount" required style="border-radius:8px;">
                 </div>
-                <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Create Tournament</button>
-                <a routerLink="/tournamentsList" class="btn btn-warning"><i class="fas fa-undo"></i>Cancel</a>
+                <div style="margin-top:30px;padding-left:30%; ">
+                  <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> Create Tournament</button>
+                  &nbsp;
+                  <a routerLink="/tournamentsList" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a>
+                </div>
             </form>
         </div>
     </div>

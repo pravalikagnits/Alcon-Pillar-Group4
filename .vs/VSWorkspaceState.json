@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.angular",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\views",
+    "\\src\\app\\views\\home",
+    "\\src\\app\\views\\partials",
+    "\\src\\app\\views\\partials\\header",
+    "\\src\\app\\views\\register",
+    "\\src\\app\\views\\tournament"
+  ],
+  "SelectedNode": "\\src\\app\\views\\add-tournament\\add-tournament.component.html",
+  "PreviewInSolutionExplorer": false
+}

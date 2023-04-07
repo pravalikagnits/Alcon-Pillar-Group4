@@ -5,7 +5,7 @@
                 Tournaments List
             </h3>
             <a routerLink="/displayAddTournament" class="btn btn-primary my-3" role="button">
-                <i class="fas fa-plus-circle"></i>Create Tournament</a>
+                <i class="fas fa-plus-circle"></i> Create Tournament</a>
             <br>
 
             <table class="table table-striped">
@@ -22,34 +22,34 @@
                 </thead>
                 <tbody *ngFor='let tournament of Tournaments'>
                   <tr>
-                    <td>
+                    <td style="color: khaki; font-family: 'Cascadia Mono'; background-color: indianred;">
                       {{tournament.title}}
                     </td>
-                    <td>
-                      {{tournament.owner}}
+                    <td style="color: khaki; font-family: 'Cascadia Mono'; background-color: indianred">
+                    {{tournament.owner}}
                     </td>
-                    <td>
+                    <td style="color: khaki; font-family: 'Cascadia Mono'; background-color: indianred">
                       {{tournament.sportType}}
                     </td>
-                    <td>
+                    <td style="color: khaki; font-family: 'Cascadia Mono'; background-color: indianred">
                       {{tournament.location}}
                     </td>
-                    <td>
+                    <td style="color: khaki; font-family: 'Cascadia Mono'; background-color: indianred">
                       {{tournament.teamCount}}
                     </td>
                     <!-- todo change the rouer link displayEditTournament  -->
                     
-                      <td>
-                        <a [routerLink]="['edit', tournament._id]" class="btn btn-primary">
-                          <i class="fas fa-pencil-alt"></i> Edit
-                        </a>
-                      </td>
-                      <td class="text-center col-1">
-                        <a (click)="deleteTournament(tournament._id)"
-                           class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
-                      </td>
-                      
-                </tr>
+  <td>
+    <a [routerLink]="['edit', tournament._id]" class="btn btn-primary">
+      <i class="fas fa-pencil-alt"></i> Edit
+    </a>
+  </td>
+  <td class="text-center col-1">
+    <a (click)="deleteTournament(tournament._id)"
+       class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+  </td>
+  
+                  </tr>
                 </tbody>
             </table>
         </div>
