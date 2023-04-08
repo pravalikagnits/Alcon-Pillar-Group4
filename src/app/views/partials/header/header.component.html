@@ -20,16 +20,17 @@
           </a>
         </li>
         
-          <li class="nav-item" *ngIf="authenticated">
-            <a class="nav-link" (click)="logout()" style="color:white"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i> Logout</a>
-          </li>
-        
-        
-          <li class="nav-item" *ngIf="!authenticated">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active" style="color:white"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Login</a>
-          </li>
-        
       </ul>
+    </div>
+    <div style="float:right;">
+      <li class="nav-item" *ngIf="authenticated">
+        <a class="nav-link font-weight-bold" (click)="logout()" style="color:black;"><i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i> Logout</a>
+      </li>
+    
+    
+      <li class="nav-item" *ngIf="!authenticated">
+        <a class="nav-link font-weight-bold" routerLink="/login" routerLinkActive="active" style="color:black;"><i class="fa-solid fa-right-to-bracket" style="color: #0a0a0a;"></i> Login</a>
+      </li>
     </div>
   </div>
 </nav>
