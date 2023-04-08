@@ -63,6 +63,7 @@ export class TournamentService {
         map((response) => {
           console.log('authenticate', { response });
           this.authToken = response.success ? response.token : null;
+          this.storeUserData(response.token, response.user);
           return response.success;
         })
       );
