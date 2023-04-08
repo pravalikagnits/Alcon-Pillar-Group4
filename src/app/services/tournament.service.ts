@@ -99,6 +99,10 @@ export class TournamentService {
     this.user = user;
   }
 
+  clearStorageData(){
+    localStorage.clear();
+  }
+
   // login(pair: any): Observable<any> {
   //   //console.log(this.baseUrl + 'login');
   //   return this.http.post<any>(this.baseUrl + 'login', pair);
