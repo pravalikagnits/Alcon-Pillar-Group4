@@ -17,6 +17,7 @@ export class AuthenticationService {
     }
     clear() {
         this.tournamentService.authToken = '';
+        this.tournamentService.clearStorageData();       
     }
 
     // login(pair: any): Observable<any> {
