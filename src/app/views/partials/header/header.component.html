@@ -19,16 +19,16 @@
             Tournaments
           </a>
         </li>
-        <ng-container *ngIf="authenticated; else login">
-          <li class="nav-item">
+        
+          <li class="nav-item" *ngIf="authenticated">
             <a class="nav-link" (click)="logout()" style="color:white"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i> Logout</a>
           </li>
-        </ng-container>
-        <ng-template #login>
-          <li class="nav-item">
+        
+        
+          <li class="nav-item" *ngIf="!authenticated">
             <a class="nav-link" routerLink="/login" routerLinkActive="active" style="color:white"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Login</a>
           </li>
-        </ng-template>
+        
       </ul>
     </div>
   </div>
