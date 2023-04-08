@@ -10,14 +10,14 @@ import { TournamentRepository } from 'src/app/model/tournament.repository';
   styleUrls: ['./tournament.component.css']
 })
 export class TournamentComponent implements OnInit {
-  public isTokenAvailable:boolean = false;
-  
+  public isUserLoggedIn:boolean = false;
+
   constructor(private repository: TournamentRepository, private router: Router) { }
 
   ngOnInit(): void {
 
    if(localStorage.getItem('id_token') != null){
-          this.isTokenAvailable = true;
+          this.isUserLoggedIn = true;
    }
 
   }

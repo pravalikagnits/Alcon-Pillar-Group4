@@ -4,7 +4,7 @@
       <h3>
         Tournaments List
       </h3>
-      <a routerLink="/displayAddTournament" class="btn btn-primary my-3" role="button">
+      <a routerLink="/displayAddTournament" class="btn btn-primary my-3" role="button" *ngIf="isUserLoggedIn">
         <i class="fas fa-plus-circle"></i> Create Tournament</a>
       <br>
 
@@ -16,8 +16,8 @@
             <th scope="col">Sports Type</th>
             <th scope="col">Location</th>
             <th scope="col">Team Count</th>
-            <th scope="col" *ngIf="isTokenAvailable"></th>
-            <th scope="col" *ngIf="isTokenAvailable"></th>
+            <th scope="col" *ngIf="isUserLoggedIn"></th>
+            <th scope="col" *ngIf="isUserLoggedIn"></th>
           </tr>
         </thead>
         <tbody *ngFor='let tournament of Tournaments'>
@@ -39,12 +39,12 @@
             </td>
             <!-- todo change the rouer link displayEditTournament  -->
 
-            <td *ngIf="isTokenAvailable">
+            <td *ngIf="isUserLoggedIn">
               <a [routerLink]="['edit', tournament._id]" class="btn btn-primary">
                 <i class="fas fa-pencil-alt"></i> Edit
               </a>
             </td>
-            <td class="text-center col-1" *ngIf="isTokenAvailable">
+            <td class="text-center col-1" *ngIf="isUserLoggedIn">
               <a (click)="deleteTournament(tournament._id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
                 Delete</a>
             </td>
