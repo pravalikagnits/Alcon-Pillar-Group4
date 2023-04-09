@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   get authenticated() {
-    return this.auth.authenticated;
+    return localStorage.getItem("id_token") != null ;
   }
 
   logout() {
