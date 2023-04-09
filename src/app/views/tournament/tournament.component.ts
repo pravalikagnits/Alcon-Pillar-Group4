@@ -10,25 +10,31 @@ import { TournamentRepository } from 'src/app/model/tournament.repository';
   styleUrls: ['./tournament.component.css']
 })
 export class TournamentComponent implements OnInit {
-  public isUserLoggedIn:boolean = false;
+  public isUserLoggedIn: boolean = false;
+  public tournamentList: Array<Tournament> = [];
 
   constructor(private repository: TournamentRepository, private router: Router) { }
 
   ngOnInit(): void {
 
-   if(localStorage.getItem('id_token') != null){
-          this.isUserLoggedIn = true;
-   }
+    if (localStorage.getItem('id_token') != null) {
+      this.isUserLoggedIn = true;
+
+    }
+    this.tournamentList = this.getTournaments();
 
   }
+
 
   get Tournaments(): Tournament[] {
     return this.repository.getTournaments();
   }
-
+  getTournaments(): Tournament[] {
+    return this.repository.getTournaments();
+  }
   deleteTournament(tournamentId?: number): void {
     if (!tournamentId) return;
     this.repository.deleteTournament(tournamentId);
   }
-  
+
 }

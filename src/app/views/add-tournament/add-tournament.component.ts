@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tournament } from 'src/app/model/tournament.model';
 import { TournamentRepository } from 'src/app/model/tournament.repository';
+import { TournamentService } from 'src/app/services/tournament.service';
 
 @Component({
   selector: 'app-add-tournament',
@@ -12,7 +13,8 @@ import { TournamentRepository } from 'src/app/model/tournament.repository';
 export class AddTournamentComponent implements OnInit {
   editMode: boolean = false;
   tournament: Tournament = new Tournament();
-  constructor(private repository: TournamentRepository, private router: Router, tournament: Tournament, activeRoute: ActivatedRoute) {
+  constructor(private repository: TournamentRepository, private router: Router, tournament: Tournament, activeRoute: ActivatedRoute, private tournamentService: TournamentService) {
+
     this.editMode = activeRoute.snapshot.params['mode'] == 'edit';
     if (this.editMode) {
       repository
@@ -27,6 +29,8 @@ export class AddTournamentComponent implements OnInit {
       this.repository.addTournament(this.tournament).subscribe(data => {
         console.log(data);
         if (data) {
+          this.tournamentService.getTournamentList();
+
           this.router.navigateByUrl("/tournamentsList");
         }
       });
