@@ -1,46 +1,49 @@
+
 <div class="container">
+    37%
     <div class="row">
         <div class="offset-md-3 col-md-6">
-            <h1>
-                Create Tournament
-            </h1>
+            
             <br/>
-            <form #form="ngForm" novalidate (ngSubmit)="addTournament(form)" class="m-2" style="">
-                <div class="form group" style=" padding-left: 37%; margin-top: 10px; border-radius: 8px;  ">
-                    <label for="nameTextField"></label>
-                    <input type="text" class="form control" id="tournamentTitle" [(ngModel)]="tournament.title"
-                        placeholder="Title" name="title" required style="border-radius:8px;">
+            <form #form="ngForm" novalidate (ngSubmit)="addTournament(form)" style="align-items: center;display: flex;flex-direction: column;justify-content: center;" >
+                <h1 >
+                    Create Tournament
+                </h1>
+                <div class="form-group" style="padding-left: 6rem; width: 90%; margin-top: 10px; border-radius: 8px;  ">
+                    <input type="text" class="form-control form-control-lg" id="tournamentTitle" [(ngModel)]="tournament.title"
+                        placeholder="Title" name="title" required style="border-radius:8px;">                        
                 </div>
 
-                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                <div class="form-group" style="color: white; position: center; padding-left: 6rem; width: 90%;  margin-top:10px;">
                     <label for="authorTextField"></label>
-                    <input type="text" class="form control" id="ownerFeild" [(ngModel)]="tournament.owner"
+                    <input type="text" class="form-control form-control-lg" id="ownerFeild" [(ngModel)]="tournament.owner"
                         placeholder="Owner" name="Owner" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                <div class="form-group" style="color: white; position: center;padding-left: 6rem; width: 90%;  margin-top:10px;">
                     <label for="publishedTextField"></label>
-                    <input type="text" class="form control" id="publishedTextField" [(ngModel)]="tournament.sportType"
+                    <input type="text" class="form-control form-control-lg" id="publishedTextField" [(ngModel)]="tournament.sportType"
                         placeholder="Sport Type" name="sportType" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                <div class="form-group" style="color: white; position: center;padding-left: 6rem; width: 90%;  margin-top:10px;">
                     <label for="locationFeild"></label>
-                    <input type="text" class="form control" id="locationFeild" [(ngModel)]="tournament.location"
+                    <input type="text" class="form-control form-control-lg" id="locationFeild" [(ngModel)]="tournament.location"
                         placeholder="Location" name="location" required style="border-radius:8px;">
                 </div>
 
-                <div class="form group" style="color: white; position: center; padding-left: 37%; margin-top:10px;">
+                <div class="form-group" style="color: white; position: center;padding-left: 6rem; width: 90%;  margin-top:10px;">
                     <label for="teamCountFeild"> </label>
-                    <input type="number" min="0" class="form control" id="teamCountFeild" [(ngModel)]="tournament.teamCount"
+                    <input type="number" min="0" class="form-control form-control-lg" id="teamCountFeild" [(ngModel)]="tournament.teamCount"
                         placeholder="Team Count" name="teamCount" required style="border-radius:8px;">
                 </div>
-                <div style="margin-top:30px;padding-left:30%; ">
-                  <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> Create Tournament</button>
+                <div style="margin-top:30px;padding-left:30%;display: flex;flex-direction: row; ">
+                  <button class="btn btn-primary  btn-lg" type="submit"><i class="fas fa-edit"></i> Create Tournament</button>
                   &nbsp;
                   <a routerLink="/tournamentsList" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a>
                 </div>
             </form>
         </div>
     </div>
+    
 </div>

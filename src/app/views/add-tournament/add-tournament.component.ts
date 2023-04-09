@@ -28,7 +28,8 @@ export class AddTournamentComponent  implements OnInit{
         console.log(data);
       });
     }
-    this.router.navigateByUrl('/tournamentsList');
+    return;
+    // this.router.navigateByUrl('/tournamentsList');
   }
 
 }
