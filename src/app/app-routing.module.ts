@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'tournamentsList/:mode', component: EditTournamentComponent,canActivate:[AuthGuard] },
   { path: 'tournamentsList/edit/:id', component: EditTournamentComponent , canActivate:[AuthGuard]},
   { path: 'tournamentsList', component: TournamentComponent },
-
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
   { path: 'register', component: RegisterComponent, data: { title: 'Register' } },
   { path: '', component: HomeComponent }
