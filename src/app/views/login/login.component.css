@@ -1,10 +1,11 @@
-/* .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+h1{
+    color:white;
+    font-family:monospace;
 }
-
-.login form {
-    text-align: center;
-} */
+label{
+    color:white;
+}
+p{
+    color:white;
+    padding-left:18%;
+}

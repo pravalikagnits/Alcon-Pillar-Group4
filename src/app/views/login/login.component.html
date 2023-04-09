@@ -1,24 +1,32 @@
+<style type="text/css">
+  a:link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+</style>
 <div class="d-flex flex-column align-items-center md-4 login mt-5">
-    <div class="offset ">
-        <h1>Please login</h1>
-        <form #form="ngForm" novalidate (ngSubmit)="loginUser(form)" class="m-2">
-            <fieldset class="form-group ">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control mt-2" name="username" placeholder="Enter username"
-                    [(ngModel)]="username" id="username" required autofocus>
-            </fieldset>
+  <div class="offset ">
+    <h1>Please login</h1>
+    <form #form="ngForm" novalidate (ngSubmit)="loginUser(form)" class="m-2">
+      <fieldset class="form-group ">
+        <!--<label for="username">Username:</label>-->
+        <input type="text" class="form-control mt-2" name="username" placeholder="Enter username" [(ngModel)]="username"
+          id="username" required autofocus>
+      </fieldset>
 
-            <fieldset class="form-group mt-3">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control mt-2" name="password" placeholder="Enter password"
-                    [(ngModel)]="password" id="password" required>
-                <p class="mt-2"> New User?<a href="/register">Register Here</a></p>
-            </fieldset>
+      <fieldset class="form-group mt-3">
+        <!--<label for="password">Password:</label>-->
+        <input type="password" class="form-control mt-2" name="password" placeholder="Enter password"
+          [(ngModel)]="password" id="password" required>
+        <p class="mt-2 "> New User?<a href="/register" style="color:antiquewhite"
+            style="background-color:rgb(255, 255, 255)">
+            Register Here </a></p>
+      </fieldset>
 
-            <fieldset class="form-group text-right mt-3 d-flex justify-content-center">
-                <input type="submit" class="btn btn-success me-2" value="Login">
-                <a href="/"><input type="button" class="btn btn-warning" value="cancel"></a>
-            </fieldset>
-        </form>
-    </div>
+      <fieldset class="form-group text-right mt-3 d-flex justify-content-center">
+        <input type="submit" class="btn btn-success me-2" value="Login">
+        <a href="/"><input type="button" class="btn btn-warning" value="cancel"></a>
+      </fieldset>
+    </form>
+  </div>
 </div>

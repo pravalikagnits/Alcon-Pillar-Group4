@@ -63,6 +63,7 @@ export class TournamentService {
         map((response) => {
           console.log('authenticate', { response });
           this.authToken = response.success ? response.token : null;
+          this.storeUserData(response.token, response.user);
           return response.success;
         })
       );
@@ -96,6 +97,10 @@ export class TournamentService {
 
     localStorage.setItem('user', JSON.stringify(user));
     this.user = user;
+  }
+
+  clearStorageData(){
+    localStorage.clear();
   }
 
   // login(pair: any): Observable<any> {

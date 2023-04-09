@@ -1,50 +1,57 @@
 <main class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col md-8">
-            <h3>
-                Tournaments List
-            </h3>
-            <a routerLink="/displayAddTournament" class="btn btn-primary my-3" role="button">
-                <i class="fas fa-plus-circle"></i>Create Tournament</a>
-            <br>
+  <div class="row">
+    <div class="col-md-offset-3 col md-8">
+      <h3>
+        Tournaments List
+      </h3>
+      <a routerLink="/displayAddTournament" class="btn btn-primary my-3" role="button" *ngIf="isUserLoggedIn" >
+        <i class="fas fa-plus-circle"></i> Create Tournament</a>
+      <br>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Owner</th>
-                        <th scope="col">Sports Type</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Team Count</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody *ngFor='let tournament of Tournaments'>
-                    <tr>
-                        <td>
-                            {{tournament.title}}
-                        </td>
-                        <td>
-                            {{tournament.owner}}
-                        </td>
-                        <td>
-                            {{tournament.sportType}}
-                        </td>
-                        <td>
-                            {{tournament.location}}
-                        </td>
-                        <td>
-                            {{tournament.teamCount}}
-                        </td>
-<!-- todo change the rouer link displayEditTournament  -->
-                        <td><a  [routerLink]="['edit', tournament._id]" class="btn btn-primary"><i
-                                    class="fas fa-pencil-alt"></i>Edit</a></td>
-                        <td class="text-center col-1"><a (click)="deleteTournament(tournament._id)"
-                                class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Sports Type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Team Count</th>
+            <th scope="col" *ngIf="isUserLoggedIn"></th>
+            <th scope="col" *ngIf="isUserLoggedIn"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor='let tournament of Tournaments'>
+          <tr style="color: rgb(246, 245, 235);  background-color: rgb(45, 42, 42);">
+            <td style="color: rgb(246, 245, 235);">
+              {{tournament.title}}
+            </td>
+            <td style="color: rgb(246, 245, 235);">
+              {{tournament.owner}}
+            </td>
+            <td style="color: rgb(246, 245, 235);">
+              {{tournament.sportType}}
+            </td>
+            <td style="color: rgb(246, 245, 235);">
+              {{tournament.location}}
+            </td>
+            <td style="color: rgb(246, 245, 235);">
+              {{tournament.teamCount}}
+            </td>
+            <!-- todo change the rouer link displayEditTournament  -->
+
+            <td *ngIf="isUserLoggedIn">
+              <a [routerLink]="['edit', tournament._id]" class="btn btn-primary">
+                <i class="fas fa-pencil-alt"></i> Edit
+              </a>
+            </td>
+            <td class="text-center col-1" *ngIf="isUserLoggedIn">
+              <a (click)="deleteTournament(tournament._id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                Delete</a>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </main>

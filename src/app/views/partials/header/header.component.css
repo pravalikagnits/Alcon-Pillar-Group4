@@ -1,5 +1,13 @@
 .navbar {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background: rgba(50, 50, 50, 0.5);
+    -webkit-backdrop-filter: ;
+    backdrop-filter: ;
+    background: ;
 }
+
+
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
