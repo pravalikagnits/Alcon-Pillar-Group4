@@ -8,20 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public isUserLoggedIn: boolean = false;
+  
 
   constructor(private router:Router){
 
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('id_token') != null) {
-      this.isUserLoggedIn = true;
-    }
+   
 
   }
 
   public onClick():void{
-    this.isUserLoggedIn ? this.router.navigateByUrl('/displayAddTournament') :this.router.navigateByUrl('/login');
+    localStorage.getItem('id_token') != null ? this.router.navigateByUrl('/displayAddTournament') :this.router.navigateByUrl('/login');
   }
 }
